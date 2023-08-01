@@ -36,13 +36,9 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto"></ul>
 				<ul class="navbar-nav">
-					<li class="nav-item active"><a class="nav-link"
-						href="/adminhome" >Home Page</a></li>
-					<li class="nav-item active"><a class="nav-link"
-						href="/logout" >Logout</a></li>
-
+					<li class="nav-item active"><a class="nav-link" href="/admin/Dashboard" >Home Page</a></li>
+					<li class="nav-item active"><a class="nav-link" href="/" >Logout</a></li>
 				</ul>
-
 			</div>
 		</div>
 	</nav><br>
@@ -51,65 +47,51 @@
 		<form action="/admin/products/add" method="post">
 			<div class="row">
 				<div class="col-sm-5">
-					
 					<div class="form-group">
 						<c:forEach var="product" items="${products}">
-						<label for="name">Id</label> 
-						<input type="number" readonly="readonly" class="form-control border border-warning" name="id"  value="${product.id + 1} ">
-						
+						    <label for="name">Id</label>
+						    <input type="number" readonly="readonly" class="form-control border border-warning" name="id"  value="${product.id + 1} ">
 						</c:forEach>
-						
-
 					</div>
 					<div class="form-group">
-						<label for="name">Name</label> 
+						<label for="name">Name</label>
 						<input type="text" class="form-control border border-warning" required name="name" placeholder="Enter name">
 					</div>
-					
+
 					<div class="form-group">
-					
-						<label for="category">Select Category</label> 
+						<label for="category">Select Category</label>
 						<select class="form-control border border-warning" name="categoryid" required>
                             <option selected>Select a Category</option>
 							<c:forEach var="category" items="${categories}">
 								<option value="${category.id}">${category.name}</option>
 							</c:forEach>
-							
 						</select>
 					</div>
-					
+
 					<div class="form-group">
-						<label for="price">Price</label> 
+						<label for="price">Price</label>
 						<input type="number" class="form-control border border-warning" required name="price" min="1" placeholder="Price">
 					</div>
 					<div class="form-group">
-						<label for="weight">Weight in grams</label> 
+						<label for="weight">Weight in grams</label>
 						<input type="number" class="form-control border border-warning" required name="weight" min="1" placeholder="Weight">
 					</div>
 					<div class="form-group">
-						<label for="weight">Available Quantity</label> 
+						<label for="weight">Available Quantity</label>
 						<input type="number" class="form-control border border-warning" required name="quantity" min="1" placeholder="Quantity">
 					</div>
-					
-					
 				</div>
-				
+
 				<div class="col-sm-5"><br>
-				<div class="form-group">
-						<label for="description">Product Description</label>
-						<textarea class="form-control border border-warning" rows="4" name="description" placeholder="Product Details" value= "no product details"></textarea>
-					</div>
+                    <div class="form-group">
+                        <label for="description">Product Description</label>
+                        <textarea class="form-control border border-warning" rows="4" name="description" placeholder="Product Details" value= "no product details"></textarea>
+                    </div>
 					<p>Product Image</p>
 					<div class="form-group">
-											<label for="Image">Image Link</label>
-                      						<input type="text" class="form-control border border-warning" required name="productImage" placeholder="Enter Short Image Link">
-
-
-					</div>
-					<div class="form-group">
-						<img src="Product Images/one.jpg" alt="Hello" id="imgPreview" height="100px" width="100px"
-							style="margin-top: 20px" >
-					</div>
+                        <label for="Image">Image Link</label>
+                        <input type="text" class="form-control border border-warning" required name="productImage" placeholder="Enter Short Image Link">
+                    </div>
 					<input type="hidden" name="imgName">
 					<input type="submit" class="btn btn-primary">
 				</div>
@@ -129,10 +111,10 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
 		<script type="text/javascript">
-						var loadFile = function(event) {
-							var image = document.getElementById('imgPreview');
-							image.src = URL.createObjectURL(event.target.files[0]);
-						};
-						</script>
+        var loadFile = function(event) {
+            var image = document.getElementById('imgPreview');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+        </script>
 </body>
 </html></html>

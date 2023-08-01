@@ -31,47 +31,34 @@
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto"></ul>
 				<ul class="navbar-nav">
-					<li class="nav-item active"><a class="nav-link" href="/adminhome">Home
-							Page</a></li>
-					<li class="nav-item active"><a class="nav-link" href="/logout">Logout</a>
-					</li>
-
+					<li class="nav-item active"><a class="nav-link" href="/admin/Dashboard">Home Page</a></li>
+					<li class="nav-item active"><a class="nav-link" href="/logout">Logout</a></li>
 				</ul>
-
 			</div>
 		</div>
 	</nav><br>
 	<div class="container">
 
-
-
 		<!-- Button trigger modal -->
 		<button type="button" style="margin: 20px 0" class="btn btn-primary"
-			data-toggle="modal" data-target="#exampleModalCenter">Add
-			Category</button>
+			data-toggle="modal" data-target="#exampleModalCenter">Add Category</button>
 
 		<!-- Modal -->
-		<div class="modal fade" id="exampleModalCenter" tabindex="-1"
-			role="dialog" aria-labelledby="exampleModalCenterTitle"
-			aria-hidden="true">
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
 					<form action="categories" method="post">
 						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLongTitle">Add New
-								Category</h5>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
+							<h5 class="modal-title" id="exampleModalLongTitle">Add New Category</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
 						<div class="modal-body  text-center">
-							<input type="text" name="categoryname" class="form-control"
-								id="name" required="required" placeholder="Category name">
+							<input type="text" name="categoryname" class="form-control" id="name" required="required" placeholder="Category name">
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
@@ -83,9 +70,6 @@
 			</div>
 		</div><br>
 
-
-
-
 		<table class="table">
 			<thead class="thead-light">
 				<tr>
@@ -96,73 +80,50 @@
 				</tr>
 			</thead>
 			<tbody>
-				
-				<c:forEach var="category" items="${categories }">
+				<c:forEach var="category" items="${categories}">
 				<tr>
-					<td>${category.id }</td>
-					<td>${category.name }</td>
-
+					<td>${category.id}</td>
+					<td>${category.name}</td>
 					<td>
 						<form action="categories/delete" method="get">
 							<input type="hidden" name="id" value="${category.id}">
 							<input type="submit" value="Delete" class="btn btn-danger">
 						</form>
 					</td>
-
 					<td>
 						<form action="categories/update" method="get">
-
-
-
-
 							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-warning" data-toggle="modal"
-								data-target="#exampleModalCenter2"
-								onclick="document.getElementById('categoryname').value =  '${category.name }'; document.getElementById('categoryid').value =  '${category.id}'; ">Update
+							<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter2"
+								onclick="document.getElementById('categoryname').value =  '${category.name}'; document.getElementById('categoryid').value =  '${category.id}'; ">Update
 							</button>
 
 							<!-- Modal -->
-							<div class="modal fade" id="exampleModalCenter2" tabindex="-1"
-								role="dialog" aria-labelledby="exampleModalCenterTitle"
-								aria-hidden="true">
+							<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 								<div class="modal-dialog modal-dialog-centered" role="document">
-									
-										<div class="modal-content">
-											<div class="modal-header">
-												<h5 class="modal-title" id="exampleModalLongTitle">Update
-													Product Details</h5>
-												<button type="button" class="close" data-dismiss="modal"
-													aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-												</button>
-											</div>
-											<div class="modal-body text-center">
-												<div class="form-group">
-													<input class="form-control" type="number"
-														readonly="readonly" name ="categoryid" id="categoryid" value="0">
-												</div>
-												<div class="form-group">
-													<input class="form-control" type="text" name= "categoryname" id="categoryname"
-														value="categoryname">
-												</div>
-
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-secondary"
-													data-dismiss="modal">Close</button>
-												<button type="submit" class="btn btn-primary">Update
-													changes</button>
-											</div>
-
-										</div>
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Update Product Details</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            <div class="form-group">
+                                                <input class="form-control" type="number" readonly="readonly" name ="categoryid" id="categoryid" value="0">
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" name= "categoryname" id="categoryname" value="categoryname">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Update changes</button>
+                                        </div>
+                                    </div>
 								</div>
 							</div>
-
-
-
 						</form>
 					</td>
-
 				</tr>
 				</c:forEach>
 			</tbody>
